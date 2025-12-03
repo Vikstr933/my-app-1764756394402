@@ -1,0 +1,362 @@
+:root {
+  --primary-600: #4f46e5;
+  --primary-700: #4338ca;
+  --primary-900: #312e81;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  padding: 2rem
+}
+
+.hero-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  transition: background 0.3s ease;
+  z-index: 1
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  z-index: 0
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0)
+  }
+  100% {
+    transform: translate(50px, 50px)
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  text-align: center
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 9999px;
+  color: #a5b4fc;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s ease-out
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #6366f1;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0.5
+  }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.6s ease-out 0.1s both
+}
+
+.hero-title-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #9ca3af;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  animation: fadeInUp 0.6s ease-out 0.2s both
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.6s ease-out 0.3s both
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3)
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4)
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease
+}
+
+.btn-primary:hover::before {
+  left: 100%
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px)
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px)
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease
+}
+
+.btn-primary:hover .btn-icon {
+  transform: translateX(4px)
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease-out 0.4s both
+}
+
+.stat-item {
+  text-align: center
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-weight: 500
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1)
+}
+
+.hero-visual {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  z-index: 1
+}
+
+.floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: float 3s ease-in-out infinite
+}
+
+.card-1 {
+  top: -100px;
+  right: 0;
+  animation-delay: 0s
+}
+
+.card-2 {
+  top: 50px;
+  right: -50px;
+  animation-delay: 0.5s
+}
+
+.card-3 {
+  top: 200px;
+  right: 20px;
+  animation-delay: 1s
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0)
+  }
+  50% {
+    transform: translateY(-20px)
+  }
+}
+
+.card-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5))
+}
+
+.card-text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  white-space: nowrap
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px)
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-visual {
+    display: none
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem
+  }
+
+  .hero-title {
+    font-size: 2.5rem
+  }
+
+  .hero-description {
+    font-size: 1.125rem
+  }
+
+  .hero-stats {
+    gap: 2rem
+  }
+
+  .stat-value {
+    font-size: 2rem
+  }
+
+  .stat-divider {
+    display: none
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2rem
+  }
+
+  .hero-description {
+    font-size: 1rem
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem
+  }
+}
